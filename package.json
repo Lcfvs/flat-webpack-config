@@ -1,6 +1,6 @@
 {
   "name": "flat-webpack-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A flat configuration helper for webpack",
   "main": "index.js",
   "scripts": {
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Lcfvs/webpack-flat.git"
+    "url": "git+https://github.com/Lcfvs/flat-webpack-config.git"
   },
   "author": "lcf.vs <michael.rouges@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Lcfvs/webpack-flat/issues"
+    "url": "https://github.com/Lcfvs/flat-webpack-config/issues"
   },
-  "homepage": "https://github.com/Lcfvs/webpack-flat#readme",
+  "homepage": "https://github.com/Lcfvs/flat-webpack-config#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
