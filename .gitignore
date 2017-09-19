@@ -1,0 +1,4 @@
+**/.idea
+**/*.bak
+**/cache
+**/node_modules
