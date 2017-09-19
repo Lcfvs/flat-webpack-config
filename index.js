@@ -13,7 +13,7 @@ Banner = webpack.BannerPlugin;
 function configure(root) {
   let
   pack = readJSONFile(root, './package.json'),
-  config = readJSONFile(root, './webpack-flat.json'),
+  config = readJSONFile(root, './flat-webpack-config.json'),
   app = createAppBundle(pack, config, config.bundles.app),
   polyfills = createPolyfillBundle(pack, config, config.bundles.polyfills),
   configs = [];
@@ -106,7 +106,7 @@ function addInfo(pack, dependency) {
   return dependency;
 }
 
-function createConfig(json, config, bundle) {
+function createConfig(pack, config, bundle) {
   return {
     target: 'web',
     devtool: config.map ? 'source-map' : undefined,
@@ -120,7 +120,10 @@ function createConfig(json, config, bundle) {
         {
           test: /\.js$/,
           loader: 'babel-loader',
-          include: resolve(dirname(json.main))
+          include: resolve(dirname(pack.main)),
+          options: {
+            presets: ['env']
+          }
         }
       ]
     },
