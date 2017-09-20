@@ -10,10 +10,10 @@ dirname = path.dirname,
 resolve = path.resolve,
 Banner = webpack.BannerPlugin;
 
-function configure(root) {
+function configure(root, options) {console.log(process.cwd())
   let
   pack = readJSONFile(root, './package.json'),
-  config = readJSONFile(root, './flat-webpack-config.json'),
+  config = options || readJSONFile(root, './flat-webpack-config.json'),
   app = createAppBundle(pack, config, config.bundles.app),
   polyfills = createPolyfillBundle(pack, config, config.bundles.polyfills),
   configs = [];
@@ -69,43 +69,6 @@ function createPolyfillBundle(pack, config, dependencies) {
   return bundle;
 }
 
-function addPath(bundle, name) {
-  let
-  dependency = bundle.dependencies[name];
-
-  bundle.paths.push(require.resolve(dependency.name + '/' + dependency.file));
-}
-
-function addBanner(bundle, banner, name) {
-  let
-  dependency = bundle.dependencies[name];
-
-  banner[name] = addInfo(bundle.pack, {
-    name: dependency.name,
-    file: dependency.file
-  });
-}
-
-function getInfo(pack, dependency) {
-  if (!dependency.name) {
-    return pack;
-  }
-
-  return readJSONFile(dependency.name, 'package.json');
-}
-
-function addInfo(pack, dependency) {
-  let
-  info = getInfo(pack, dependency);
-
-  dependency.version = info.version;
-  dependency.author = info.author && info.author.name || info.author;
-  dependency.license = info.license;
-  dependency.homepage = info.homepage;
-
-  return dependency;
-}
-
 function createConfig(pack, config, bundle) {
   return {
     target: 'web',
@@ -137,6 +100,43 @@ function createConfig(pack, config, bundle) {
       })
     ]
   }
+}
+
+function addPath(bundle, name) {
+  let
+  dependency = bundle.dependencies[name];
+
+  bundle.paths.push(require.resolve(dependency.name + '/' + dependency.file));
+}
+
+function addBanner(bundle, banner, name) {
+  let
+  dependency = bundle.dependencies[name];
+
+  banner[name] = addInfo(bundle.pack, {
+    name: dependency.name,
+    file: dependency.file
+  });
+}
+
+function addInfo(pack, dependency) {
+  let
+  info = getInfo(pack, dependency);
+
+  dependency.version = info.version;
+  dependency.author = info.author && info.author.name || info.author;
+  dependency.license = info.license;
+  dependency.homepage = info.homepage;
+
+  return dependency;
+}
+
+function getInfo(pack, dependency) {
+  if (!dependency.name) {
+    return pack;
+  }
+
+  return readJSONFile(dependency.name, 'package.json');
 }
 
 module.exports = configure;

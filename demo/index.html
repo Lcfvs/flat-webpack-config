@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>validation::demos::anticore</title>
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <h1>validation::demos::anticore</h1>
+        </header>
+        <main>
+            <form name="user" action="fragments/response.html" method="get">
+                <fieldset>
+                    <p>
+                        <label for="username">Username</label>
+                        <input name="username" id="username" placeholder="Lcf.vs" />
+                    </p>
+                    <p>
+                        <label for="country">Country</label>
+                        <select name="country" id="country">
+                            <option value="Belgium" selected="selected">Belgium</option>
+                            <option value="France">France</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </p>
+                </fieldset>
+                <button type="submit" class="save">Save</button>
+            </form>
+        </main>
+        <script defer="defer" nomodule="nomodule" src="assets/js/polyfills.min.js"></script>
+            <script defer="defer" src="assets/js/app.min.js"></script>
+    </body>
+</html>

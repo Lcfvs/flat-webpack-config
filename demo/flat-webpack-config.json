@@ -1,0 +1,27 @@
+{
+  "bundles": {
+    "app": {
+      "anticore": {
+        "name": "anticore",
+        "file": "./anticore.min.js"
+      }
+    },
+    "polyfills": {
+      "fetch": {
+        "name": "whatwg-fetch",
+        "file": "./fetch.js"
+      },
+      "Promise": {
+        "name": "es6-promise",
+        "file": "./dist/es6-promise.auto.min.js"
+      },
+      "URL": {
+        "name": "js-polyfills",
+        "file": "./url.js"
+      }
+    }
+  },
+  "map": false,
+  "output": "./assets/js",
+  "spaces": 2
+}
