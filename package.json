@@ -1,6 +1,6 @@
 {
   "name": "flat-webpack-config",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "A flat configuration helper for webpack",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "url": "https://github.com/Lcfvs/flat-webpack-config/issues"
   },
   "homepage": "https://github.com/Lcfvs/flat-webpack-config#readme",
-  "devDependencies": {
+  "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-minify-webpack-plugin": "^0.2.0",
