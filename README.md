@@ -9,25 +9,27 @@ A flat configuration helper for webpack
 
 ### Don't forget to declare your `package.json` `main` field
 
-###Create a `flat-webpack-config.json`
+### Create a `flat-webpack-config.json` like
 
 ```json
 {
   "bundles": {
     "app": {
-      "dependency-alias": {
-        "name": "module-name",
-        "file": "./module-file.js"
+      "anticore": {
+        "name": "anticore"
       }
     },
     "polyfills": {
-      "polyfill-1-alias": {
-        "name": "polyfill-1-name",
-        "file": "./polyfill-1-file.js"
+      "fetch": {
+        "name": "whatwg-fetch"
       },
-      "polyfill-2-alias": {
-        "name": "polyfill-2-name",
-        "file": "./polyfill-2-file.js"
+      "Promise": {
+        "name": "es6-promise",
+        "file": "./dist/es6-promise.auto.min.js"
+      },
+      "URL": {
+        "name": "js-polyfills",
+        "file": "./url.js"
       }
     }
   },

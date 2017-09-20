@@ -15,11 +15,16 @@ function configure(root, options) {
   pack = readJSONFile(root, './package.json'),
   config = options || readJSONFile(root, './flat-webpack-config.json'),
   app = createAppBundle(pack, config, config.bundles.app),
-  polyfills = createPolyfillBundle(pack, config, config.bundles.polyfills),
   configs = [];
 
   configs.push(createConfig(pack, config, app));
-  configs.push(createConfig(pack, config, polyfills));
+
+  if (config.bundles.polyfills) {
+    let
+    polyfills = createPolyfillBundle(pack, config, config.bundles.polyfills);
+
+    configs.push(createConfig(pack, config, polyfills));
+  }
 
   return configs;
 }
@@ -72,7 +77,9 @@ function createPolyfillBundle(pack, config, dependencies) {
 function createConfig(pack, config, bundle) {
   return {
     target: 'web',
-    devtool: config.map ? 'source-map' : undefined,
+    devtool: config.map
+      ? 'source-map'
+      : undefined,
     entry: bundle.paths,
     output: {
       path: resolve(config.output),
@@ -104,9 +111,12 @@ function createConfig(pack, config, bundle) {
 
 function addPath(bundle, name) {
   let
-  dependency = bundle.dependencies[name];
+  dependency = bundle.dependencies[name],
+  path = typeof dependency.file === 'string'
+    ? dependency.name + '/' + dependency.file
+    : dependency.name;
 
-  bundle.paths.push(require.resolve(dependency.name + '/' + dependency.file));
+  bundle.paths.push(require.resolve(path));
 }
 
 function addBanner(bundle, banner, name) {

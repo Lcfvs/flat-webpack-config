@@ -2,14 +2,12 @@
   "bundles": {
     "app": {
       "anticore": {
-        "name": "anticore",
-        "file": "./anticore.min.js"
+        "name": "anticore"
       }
     },
     "polyfills": {
       "fetch": {
-        "name": "whatwg-fetch",
-        "file": "./fetch.js"
+        "name": "whatwg-fetch"
       },
       "Promise": {
         "name": "es6-promise",

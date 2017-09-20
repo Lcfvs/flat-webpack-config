@@ -1,6 +1,6 @@
 {
   "name": "localhost",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "./assets/js/dev/main.js",
   "scripts": {
@@ -13,6 +13,6 @@
     "es6-promise": "^4.1.1",
     "js-polyfills": "^0.1.34",
     "whatwg-fetch": "^2.0.3",
-    "flat-webpack-config": "^1.2.4"
+    "flat-webpack-config": "^1.2.5"
   }
 }
