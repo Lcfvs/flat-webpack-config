@@ -10,7 +10,7 @@ dirname = path.dirname,
 resolve = path.resolve,
 Banner = webpack.BannerPlugin;
 
-function configure(root, options) {console.log(process.cwd())
+function configure(root, options) {
   let
   pack = readJSONFile(root, './package.json'),
   config = options || readJSONFile(root, './flat-webpack-config.json'),
@@ -95,7 +95,7 @@ function createConfig(pack, config, bundle) {
         test: /\.js$/
       }),
       new Banner({
-        banner: JSON.stringify(bundle.banner, null, config.spaces).replace(/"/g, ''),
+        banner: JSON.stringify(bundle.banner, null, config.spaces),
         test: /\.js$/
       })
     ]
