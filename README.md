@@ -42,6 +42,23 @@ npm i -d flat-webpack-config
 'use strict';
 
 module.exports = require('flat-webpack-config')(__dirname);
+
+// or avoid the `flat-webpack-config.json` file by
+module.exports = require('flat-webpack-config')(__dirname, {
+  "bundles": {
+    "app": {
+      "anticore": "anticore"
+    },
+    "polyfills": {
+      "fetch": "whatwg-fetch",
+      "Promise": "es6-promise/dist/es6-promise.auto.min.js",
+      "URL": "js-polyfills/url.js"
+    }
+  },
+  "map": true,
+  "output": "./assets/js",
+  "spaces": 2
+});
 ```
 
 ### Run webpack
