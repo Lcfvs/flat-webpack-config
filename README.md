@@ -42,10 +42,7 @@ A flat configuration helper for webpack
 ```js
 'use strict';
 
-const
-flat = require('flat-webpack-config');
-
-module.exports = flat(__dirname);
+module.exports = require('flat-webpack-config')(__dirname);
 ```
 
 ### Run webpack
