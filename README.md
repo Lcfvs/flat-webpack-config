@@ -3,37 +3,34 @@ A flat configuration helper for webpack
 
 ## Install
 
-`npm install flat-webpack-config`
+`npm i -d flat-webpack-config`
 
 ## Usage
 
-### Don't forget to declare your `package.json` `main` field
+### Initialize your module
 
-### Create a `flat-webpack-config.json` like
+```sh
+mkdir project-name
+cd project-name
+npm init
+npm i -d flat-webpack-config
+```
+
+### Create a `flat-webpack-config.json`
 
 ```json
 {
   "bundles": {
     "app": {
-      "anticore": {
-        "name": "anticore"
-      }
+      "anticore": "anticore"
     },
     "polyfills": {
-      "fetch": {
-        "name": "whatwg-fetch"
-      },
-      "Promise": {
-        "name": "es6-promise",
-        "file": "./dist/es6-promise.auto.min.js"
-      },
-      "URL": {
-        "name": "js-polyfills",
-        "file": "./url.js"
-      }
+      "fetch": "whatwg-fetch",
+      "Promise": "es6-promise/dist/es6-promise.auto.min.js",
+      "URL": "js-polyfills/url.js"
     }
   },
-  "map": false,
+  "map": true,
   "output": "./assets/js",
   "spaces": 2
 }

@@ -110,13 +110,7 @@ function createConfig(pack, config, bundle) {
 }
 
 function addPath(bundle, name) {
-  let
-  dependency = bundle.dependencies[name],
-  path = typeof dependency.file === 'string'
-    ? dependency.name + '/' + dependency.file
-    : dependency.name;
-
-  bundle.paths.push(require.resolve(path));
+  bundle.paths.push(require.resolve(bundle.dependencies[name]));
 }
 
 function addBanner(bundle, banner, name) {

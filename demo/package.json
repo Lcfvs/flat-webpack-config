@@ -13,6 +13,6 @@
     "es6-promise": "^4.1.1",
     "js-polyfills": "^0.1.34",
     "whatwg-fetch": "^2.0.3",
-    "flat-webpack-config": "^1.2.5"
+    "flat-webpack-config": "^2.0.0"
   }
 }
