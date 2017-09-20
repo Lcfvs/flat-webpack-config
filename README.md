@@ -47,3 +47,10 @@ module.exports = require('flat-webpack-config')(__dirname);
 ### Run webpack
 
 `webpack`
+
+### Tip: Target old browsers to load the polyfills
+
+```html
+<script defer nomodule src="assets/js/polyfills.min.js"></script>
+<script defer src="assets/js/app.min.js"></script>
+```
